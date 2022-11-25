@@ -5,9 +5,11 @@ import webbrowser
 
 win = Tk()
 win.title("Téglalap terület, kerület")
-win.geometry("250x650")
+win.geometry("250x550")
 global mertekegyseg, mertekegyseg_szamitott
 tegla = Teglalap()
+label_cim = Label(win, text="Téglalap terület,\n és kerület \nszámító", font='Century 15 bold')
+label_cim.pack(pady=5)
 
 
 def get_value():
@@ -26,13 +28,13 @@ def get_value():
     tegla.bekeres(a_text, b_text)
     szamitas_text1, szamitas_text2 = tegla.szamitas(mertekegyseg, mertekegyseg_szamitott)
 
-    label1 = Label(win, text="", font='Century 15 bold')
+    # label1 = Label(win, text="", font='Century 15 bold')
     label1.config(text="A terület: {} {}2".format(szamitas_text1, mertekegyseg_szamitott))
-    label1.pack(pady=5)
+    # label1.pack(pady=5)
 
-    label2 = Label(win, text="", font='Century 15 bold')
+    # label2 = Label(win, text="", font='Century 15 bold')
     label2.config(text="A kerület: {} {}".format(szamitas_text2, mertekegyseg_szamitott))
-    label2.pack(pady=5)
+    # label2.pack(pady=5)
 
 
 def bongeszo():
@@ -75,5 +77,10 @@ button.pack()
 
 button_url = ttk.Button(win, text="Téglalapról bővebben", command=bongeszo)
 button_url.pack()
+
+label1 = Label(win, text="", font='Century 12 bold')
+label2 = Label(win, text="", font='Century 12 bold')
+label1.pack(pady=5)
+label2.pack(pady=5)
 
 win.mainloop()
