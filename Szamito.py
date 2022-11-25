@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from main import *
+import webbrowser
 
 win = Tk()
 win.title("Téglalap terület, kerület")
@@ -34,28 +35,45 @@ def get_value():
     label2.pack(pady=5)
 
 
-label_radio1 = Label(win, text="Miből ")
+def bongeszo():
+    edge = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    webbrowser.register('edge', None, webbrowser.BackgroundBrowser(edge))
+    # webbrowser.open("https://hu.wikipedia.org/wiki/T%C3%A9glalap")
+    webbrowser.get('edge').open('https://hu.wikipedia.org/wiki/T%C3%A9glalap')
+
+
+label_radio1 = Label(win, text="Miből ", font='Century 10 bold')
 label_radio1.pack()
 var = IntVar()
-R1 = Radiobutton(win, text="cm", variable=var, value=1)
+R1 = Radiobutton(win, text="cm", font='Century 10 bold', variable=var, value=1)
 R1.pack()
-R2 = Radiobutton(win, text="dm", variable=var, value=2)
+R2 = Radiobutton(win, text="dm", font='Century 10 bold', variable=var, value=2)
 R2.pack()
 
-label_radio2 = Label(win, text="Mibe ")
+label_radio2 = Label(win, text="Mibe ", font='Century 10 bold')
 label_radio2.pack()
 var_mibe = IntVar()
-R3 = Radiobutton(win, text="cm", variable=var_mibe, value=1)
+R3 = Radiobutton(win, text="cm", font='Century 10 bold', variable=var_mibe, value=1)
 R3.pack()
-R4 = Radiobutton(win, text="dm", variable=var_mibe, value=2)
+R4 = Radiobutton(win, text="dm", font='Century 10 bold', variable=var_mibe, value=2)
 R4.pack()
 
-
+label_a = Label(win, text="", font='Century 12 bold')
+label_a.config(text="Adja meg az 'A' oldalt:")
+label_a.pack(pady=5)
 entry = ttk.Entry(win, font="Century 12", width=20)
 entry.pack(pady=15)
+
+label_b = Label(win, text="", font='Century 12 bold')
+label_b.config(text="Adja meg az 'B' oldalt:")
+label_b.pack(pady=5)
 entry2 = ttk.Entry(win, font='Century 12', width=20)
 entry2.pack(pady=15)
 
-button = ttk.Button(win, text="Enter", command=get_value)
+button = ttk.Button(win, text="Számol", command=get_value)
 button.pack()
+
+button_url = ttk.Button(win, text="Téglalapról bővebben", command=bongeszo)
+button_url.pack()
+
 win.mainloop()
