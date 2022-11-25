@@ -1,12 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 from main import *
-#kacsa
+
 win = Tk()
 win.title("Téglalap terület, kerület")
 win.geometry("250x650")
 global mertekegyseg, mertekegyseg_szamitott
 tegla = Teglalap()
+
 
 def get_value():
     global mertekegyseg, mertekegyseg_szamitott
@@ -24,13 +25,14 @@ def get_value():
     tegla.bekeres(a_text, b_text)
     szamitas_text1, szamitas_text2 = tegla.szamitas(mertekegyseg, mertekegyseg_szamitott)
 
-    label1 = Label(win, text="", font=('Century 15 bold'))
+    label1 = Label(win, text="", font='Century 15 bold')
     label1.config(text="A terület: {} {}2".format(szamitas_text1, mertekegyseg_szamitott))
     label1.pack(pady=5)
 
-    label2 = Label(win, text="", font=('Century 15 bold'))
+    label2 = Label(win, text="", font='Century 15 bold')
     label2.config(text="A kerület: {} {}".format(szamitas_text2, mertekegyseg_szamitott))
     label2.pack(pady=5)
+
 
 label_radio1 = Label(win, text="Miből ")
 label_radio1.pack()
@@ -49,9 +51,9 @@ R4 = Radiobutton(win, text="dm", variable=var_mibe, value=2)
 R4.pack()
 
 
-entry = ttk.Entry(win, font=("Century 12"), width=20)
+entry = ttk.Entry(win, font="Century 12", width=20)
 entry.pack(pady=15)
-entry2 = ttk.Entry(win, font=('Century 12'), width=20)
+entry2 = ttk.Entry(win, font='Century 12', width=20)
 entry2.pack(pady=15)
 
 button = ttk.Button(win, text="Enter", command=get_value)
