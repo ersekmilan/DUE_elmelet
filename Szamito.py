@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from main import *
-
+#kacsa
 win = Tk()
 win.title("Téglalap terület, kerület")
 win.geometry("250x650")
